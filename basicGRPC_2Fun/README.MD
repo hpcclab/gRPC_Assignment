@@ -44,6 +44,7 @@ $ pip3 install grpcio-tools
 $ cd basicGRPC
 ```
 
+### Generate the preliminary libraries and build the virtual environment
 ```
 $ make prelim
 ```
@@ -54,6 +55,7 @@ $ make prelim
 $ pipenv shell
 ```
 
+### Instantiate the environment variables. These are constants that are important to the application
 ```
 $ . ./server.env
 ```
@@ -82,6 +84,7 @@ $ make client-node ARGS="whohas money"
 ```
 
 ### TIPS on implementing the two-argument function:
+### You only need to implement the new function in the Node.js version of the client
 ### A few sections of code can be reimplemented to support the new function
 ### mincount in server/src/server.py will need to be altered
 ### Query and KeywordSearch in protos/keysearch/proto/keysearch.proto will need to be altered as well
