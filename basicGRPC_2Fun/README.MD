@@ -1,0 +1,88 @@
+### These instructions were made with a Linux machine in mind
+### However, there should not be major deviations across operating systems
+### other than the OS's package manager
+
+### Common prerequisites:
+python (v3.8+), pyenv, pipenv, protobuf, Node.js (v10.0+), grpc, npm (v6.0+)
+
+### It's always a good idea to update pip first
+```
+$ python3 -m pip install --upgrade pip
+```
+
+### How to install pipenv:
+```
+$ pip3 install pipx
+$ pip3 install pipenv
+```
+
+### How to install protobuf:
+```
+$ pip3 install protobuf
+```
+
+### How to install Node.js:
+```
+$ apt install nodejs
+```
+
+### How to install and update npm:
+```
+$ apt install npm
+$ npm install -g npm@next
+```
+
+### How to install grpc:
+```
+$ pip3 install grpcio-tools
+```
+
+### Now all of the immediate dependencies should be installed
+
+### go to basicGRPC directory
+```
+$ cd basicGRPC
+```
+
+```
+$ make prelim
+```
+
+### start python env (need to do everytime)
+### If the following does not work, try Pipenv shell with an uppercase P
+```
+$ pipenv shell
+```
+
+```
+$ . ./server.env
+```
+
+### Make and run server
+```
+$ make server
+```
+
+### The server is now running
+### Do not close this terminal
+
+### Now it's time to make and run the client
+### Open up a new terminal (be sure to enter the virtual env again with pipenv shell)
+### ARGS= is a way to pass along command line arguments from make file to 
+### first argument is the grpc function name to call (currently we only have whohas)
+### next argument is the argument of function that we call (in this case, keyword to search)
+### example of calling whohas through grpc to search for word "money":
+```
+$ make client-py ARGS="whohas money"
+```
+
+### Execute client-node, where money is the keyword we are searching for
+```
+$ make client-node ARGS="whohas money"
+```
+
+### TIPS on implementing the two-argument function:
+### A few sections of code can be reimplemented to support the new function
+### mincount in server/src/server.py will need to be altered
+### Query and KeywordSearch in protos/keysearch/proto/keysearch.proto will need to be altered as well
+### The client-node.js file in client/src will also need to be altered
