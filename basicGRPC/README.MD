@@ -1,6 +1,4 @@
 ### These instructions were made with a Linux machine in mind
-### However, there should not be major deviations across operating systems
-### other than the OS's package manager
 
 ### Common prerequisites:
 python (v3.8+), pyenv, pipenv, protobuf, Node.js (v10.0+), grpc, npm (v6.0+)
