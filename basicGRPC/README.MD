@@ -3,8 +3,20 @@
 ### Common prerequisites:
 python (v3.8+), pyenv, pipenv, protobuf, Node.js (v10.0+), grpc, npm (v6.0+)
 
-### It's always a good idea to update pip first
+### Always a good idea to update package manager:
 ```
+$ apt update
+$ apt upgrade
+```
+
+### How to install python:
+```
+$ apt install python3
+```
+
+### How to install and update pip:
+```
+$ apt install python3-pip
 $ python3 -m pip install --upgrade pip
 ```
 
@@ -19,6 +31,11 @@ $ pip3 install pipenv
 $ pip3 install protobuf
 ```
 
+### How to install grpc:
+```
+$ pip3 install grpcio-tools
+```
+
 ### How to install Node.js:
 ```
 $ apt install nodejs
@@ -28,11 +45,6 @@ $ apt install nodejs
 ```
 $ apt install npm
 $ npm install -g npm@next
-```
-
-### How to install grpc:
-```
-$ pip3 install grpcio-tools
 ```
 
 ### Now all of the immediate dependencies should be installed
