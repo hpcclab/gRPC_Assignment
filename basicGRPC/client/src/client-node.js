@@ -2,14 +2,8 @@ const PROTO_PATH = __dirname + '/../../protos/keysearch/proto/keysearch.proto';
 // IP Address + Port #
 const SOCKET = 'localhost:50051';
 
-const readline = require('readline');
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
-
-const interface = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 // Some options for loading .proto file
 const options = {
