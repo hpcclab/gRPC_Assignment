@@ -16,11 +16,12 @@ const options = {
 
 // Load the .proto file
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
-// Load the proto package 'proto.keysearch' into variable
+// Load the proto package 'proto.keysearch' into constant keysearchProto
 // This allows keysearchProto to recognize all of the definitions in the .proto file
 const keysearchProto = grpc.loadPackageDefinition(packageDefinition).proto.keysearch;
 
 function main(){
+    // Simple error catching
     if(process.argv[3 === undefined]){
         return console.log('Usage: make client-node ARGS="whohas <word>"');
     }
@@ -28,8 +29,10 @@ function main(){
     // Parse user's argument
     var arg = process.argv.slice(2);
     var func;
+    // Argument collecting is primitive in current state
     var word = arg[1];
     
+    // Determine which function user's calling
     switch(arg[0]){
         case 'whohas':
             func = 'Whohas';
